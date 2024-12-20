@@ -3447,3 +3447,20 @@
 
 })(window.Zepto || window.jQuery, window, document);
 
+// galeria-modal
+document.addEventListener('DOMContentLoaded', () => {
+	const imageModal = document.getElementById('imageModal');
+	const modalImage = document.getElementById('modalImage');
+  
+	imageModal.addEventListener('show.bs.modal', (event) => {
+	  const image = event.relatedTarget; // Obtém a imagem clicada
+	  const imageSrc = image.src; // Captura o src da imagem
+	  modalImage.src = imageSrc; // Atualiza o src da imagem no modal
+	});
+  
+	// Limpa a imagem ao fechar o modal
+	imageModal.addEventListener('hidden.bs.modal', () => {
+	  modalImage.src = ''; // Remove a imagem para evitar falhas
+	});
+  });
+  
